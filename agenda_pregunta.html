@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Promises</title>
+</head>
+<body>
+  <h1 id="agenda">Estoy durmiendo</h1>
+  <script>
+    const DESPERTAR = 3000;
+    const DUCHA = 2000;
+    const VESTIRSE = 2000;
+    const DESAYUNAR = 3000;
+    const PLATZI = 5000;
+    const $agenda = document.getElementById('agenda');
+
+    function despertar() {
+        return new Promise((resolve, reject)=>{
+            let r = confirm("Te quieres Despertar?");
+            if (r == true) {
+                $agenda.textContent = 'Ahora me estoy despertando...';
+                setTimeout(() => {
+                    resolve('Ahora me estoy duchando...');
+                }, DESPERTAR);
+            } else {
+                reject('no me voy a levantar, tengo sueno');
+            }
+        });
+    }
+
+    function ducha(message) {
+        $agenda.textContent = message;
+        return new Promise((resolve, reject)=>{
+            let r = confirm("Tienes agua en el bano?");
+            if (r == true) {
+                setTimeout(() => {
+                    resolve('Me estoy vistiendo...');
+                }, DUCHA);
+            } else {
+                reject('No hay agua en el bano');
+            }
+        });
+    }
+
+    function vestirme(message) {
+        $agenda.textContent = message;
+        return new Promise((resolve, reject)=>{
+            let r = confirm("Tienes ropa limpia?");
+            if (r == true) {
+                setTimeout(() => {
+                    resolve('Ahora estoy desayunando');
+                }, VESTIRSE);
+            } else {
+                reject('no hay ropa limpia');
+            }
+        });
+    }
+
+    function desayunar(message) {
+        $agenda.textContent = message;
+        return new Promise((resolve, reject)=>{
+            let r = confirm("Tienes comida?");
+            if (r == true) {
+                setTimeout(() => {
+                    resolve('Estoy estudiando...');
+                }, DESAYUNAR);
+            } else {
+                reject('no pude desayunar');
+            }
+        });
+    }
+
+    function error(message) {
+        $agenda.style.color = 'red';
+        $agenda.textContent = message;
+    }
+
+    despertar()
+        .then(ducha)
+        .then(vestirme)
+        .then(desayunar)
+        .catch(error);
+
+  </script>
+</body>
+</html>
