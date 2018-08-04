@@ -1,0 +1,24 @@
+{
+  "name": "platzom",
+  "version": "0.1.0",
+  "description": "funcion para cambiar palabras por otro idioma",
+  "main": "platzom.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lrangelc/platzom.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "platzi",
+    "platzom"
+  ],
+  "author": "Luis Rangel <luisrangelc@gmail.com> (https://twitter.com/luis_rangel_c)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lrangelc/platzom/issues"
+  },
+  "homepage": "https://github.com/lrangelc/platzom#readme"
+}
